@@ -29,10 +29,12 @@ docker-compose build --force-rm --no-cache && docker-compose up
 
 Once the containers start successfully navigate to http://localhost
 
+
+# To start without docker
 First run dotnet application in Visual Studion (v2019 or later)
-
 Check the port and set enviromets variable inside Adecco.Pokemon.Client
-
 run angular application with: 
 
 >ng serve --o
+
+navigate to http://localhost:4200
