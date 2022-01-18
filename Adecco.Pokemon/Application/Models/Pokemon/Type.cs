@@ -2,6 +2,9 @@
 
 namespace Adecco.Pokemon.Application.Models.Pokemon
 {
+    /// <summary>
+    /// Type.
+    /// </summary>
     public class Type : BaseNamedModel
     {
     }

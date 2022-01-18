@@ -1,7 +1,9 @@
 using Adecco.Pokemon.Application.Models.Configuration;
 using Adecco.Pokemon.Application.Services;
 using Adecco.Pokemon.Infrastructure.AutofacModules;
+using Adecco.Pokemon.Infrastructure.Middleware;
 using Autofac;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +42,8 @@ namespace Adecco.Pokemon
         /// </summary>
         public IConfiguration Configuration { get; }
 
+        private string CorsPolicy = "AdeccoCorsPolicy";
+
         /// <summary>
         /// Configure services.
         /// </summary>
@@ -48,17 +52,23 @@ namespace Adecco.Pokemon
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder//.WithOrigins("http://localhost:4200")
+                options.AddPolicy(CorsPolicy,
+                    builder => builder.WithOrigins("http://localhost:4200")
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
 
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddFluentValidation(s =>
+            {
+                s.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
+
             services.AddSwaggerGen(c =>
             {
-                var filePath = Path.Combine(AppContext.BaseDirectory, "SimpleSwagger.xml");
+                var filePath = Path.Combine(AppContext.BaseDirectory, "Swagger.xml");
                 c.IncludeXmlComments(filePath, includeControllerXmlComments: true);
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kenan Alihodzic: Adecco Test - Pokemon", Version = "v1" });
             });
@@ -68,6 +78,8 @@ namespace Adecco.Pokemon
             services.AddHttpClient<PokemonApiService>();
 
             services.AddApiVersioning();
+
+            services.AddApplicationInsightsTelemetry();
 
             services.Configure<ApiConfigurationModel>(Configuration.GetSection("PokemonApi"));
         }
@@ -98,13 +110,14 @@ namespace Adecco.Pokemon
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Adecco.Pokemon v1"));
             }
 
-            app.UseCors("CorsPolicy");
+            app.UseCors(CorsPolicy);
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            // global error handler
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

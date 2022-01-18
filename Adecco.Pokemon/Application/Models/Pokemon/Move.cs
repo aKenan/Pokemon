@@ -2,6 +2,9 @@
 
 namespace Adecco.Pokemon.Application.Models.Pokemon
 {
+    /// <summary>
+    /// Move.
+    /// </summary>
     public class Move : BaseNamedModel
     {
     }

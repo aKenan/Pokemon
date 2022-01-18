@@ -63,11 +63,6 @@ namespace Adecco.Pokemon.Application.Models.ViewModels
         /// </summary>
         public List<PokemonType> Types { get; set; }
 
-        ///// <summary>
-        ///// A list of forms this Pokémon can take on.
-        ///// </summary>
-        //public List<NamedApiResource<PokemonForm>> Forms { get; set; }
-
         /// <summary>
         /// A list of game indices relevent to Pokémon item by generation.
         /// </summary>
@@ -79,38 +74,6 @@ namespace Adecco.Pokemon.Application.Models.ViewModels
         /// </summary>
         [JsonProperty("held_items")]
         public List<PokemonHeldItem> HeldItems { get; set; }
-
-        ///// <summary>
-        ///// A link to a list of location areas, as well as encounter
-        ///// details pertaining to specific versions.
-        ///// </summary>
-        //[JsonProperty("location_area_encounters")]
-        //public string LocationAreaEncounters { get; set; }
-
-
-
-        ///// <summary>
-        ///// Type data in previous generations for this Pokemon.
-        ///// </summary>
-        //[JsonProperty("past_types")]
-        //public List<PokemonPastTypes> PastTypes { get; set; }
-
-        ///// <summary>
-        ///// A set of sprites used to depict this Pokémon in the game.
-        ///// </summary>
-        //public PokemonSprites Sprites { get; set; }
-
-        ///// <summary>
-        ///// The species this Pokémon belongs to.
-        ///// </summary>
-        //public NamedApiResource<PokemonSpecies> Species { get; set; }
-
-        ///// <summary>
-        ///// A list of base stat values for this Pokémon.
-        ///// </summary>
-        //public List<PokemonStat> Stats { get; set; }
-
-
     }
 
 }

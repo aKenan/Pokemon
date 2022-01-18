@@ -54,6 +54,11 @@
             Ability.
             </summary>
         </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.Move">
+            <summary>
+            Move.
+            </summary>
+        </member>
         <member name="T:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility">
             <summary>
             Pokemon ability.
@@ -72,6 +77,61 @@
         <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility.Ability">
             <summary>
             The ability the Pokémon may have.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.PokemonHeldItem">
+            <summary>
+            Pokemon held item.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.PokemonMove">
+            <summary>
+            Pokemon move.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonMove.Move">
+            <summary>
+            Move.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.PokemonType">
+            <summary>
+            Pokemon type.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonType.Slot">
+            <summary>
+            Slot.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonType.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.Version">
+            <summary>
+            Version.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.VersionGameIndex">
+            <summary>
+            Version game index.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.VersionGameIndex.GameIndex">
+            <summary>
+            Game index.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.VersionGameIndex.Version">
+            <summary>
+            Version.
             </summary>
         </member>
         <member name="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel">
@@ -145,11 +205,6 @@
             Pokemon view model.
             </summary>
         </member>
-        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonViewModel.Name">
-            <summary>
-            Name.
-            </summary>
-        </member>
         <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery">
             <summary>
             Get all pokemons query.
@@ -193,6 +248,16 @@
         </member>
         <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryHandler.Handle(Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery,System.Threading.CancellationToken)">
             <inheritdoc/>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryValidator">
+            <summary>
+            Validator for <see cref="T:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryValidator.#ctor">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService">
             <summary>
@@ -275,6 +340,24 @@
         </member>
         <member name="M:Adecco.Pokemon.Infrastructure.AutofacModules.ServicesModule.Load(Autofac.ContainerBuilder)">
             <inheritdoc/>
+        </member>
+        <member name="T:Adecco.Pokemon.Infrastructure.Middleware.ErrorHandlerMiddleware">
+            <summary>
+            Error handling middleware
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Infrastructure.Middleware.ErrorHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Adecco.Pokemon.Infrastructure.Middleware.ErrorHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invoke.
+            </summary>
+            <param name="context">Context.</param>
+            <returns></returns>
         </member>
         <member name="T:Adecco.Pokemon.Program">
             <summary>

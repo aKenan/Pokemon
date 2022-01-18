@@ -44,8 +44,6 @@ namespace Adecco.Pokemon.Controllers
         [HttpGet]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(PaginatedItems<PokemonViewModel>), (int)HttpStatusCode.OK)]
-        //[ProducesResponseType(typeof(ApiClientErrorResponse), (int)HttpStatusCode.BadRequest)]
-        //[ProducesResponseType(typeof(ApiServerErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetPokemonsAsync(
             [FromQuery] GetPokemonsQuery query)
         {
@@ -65,8 +63,6 @@ namespace Adecco.Pokemon.Controllers
         [HttpGet("{name}")]        
         [MapToApiVersion("1.0")]
         [ProducesResponseType(typeof(PokemonDetailedViewModel), (int)HttpStatusCode.OK)]
-        //[ProducesResponseType(typeof(ApiClientErrorResponse), (int)HttpStatusCode.BadRequest)]
-        //[ProducesResponseType(typeof(ApiServerErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> GetPokemonByNameAsync(
             [FromQuery] GetPokemonByNameQuery query)
         {
