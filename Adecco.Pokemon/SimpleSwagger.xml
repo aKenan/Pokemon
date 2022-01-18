@@ -135,6 +135,11 @@
             A list of game indices relevent to Pokémon item by generation.
             </summary>
         </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.HeldItems">
+            <summary>
+            A list of items this Pokémon may be holding when encountered.
+            </summary>
+        </member>
         <member name="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonViewModel">
             <summary>
             Pokemon view model.

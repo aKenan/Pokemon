@@ -1,0 +1,20 @@
+<div  style="font-size: 1.5em;" class="row">
+    <p>Pokemons:</p>
+    <ng-container *ngFor="let pokemon of pokemonPaginated.data">
+        <div class="col-md-6 card-body">
+            <a class="txtlink" [routerLink]="[pokemon.name]" routerLinkActive="active" title="Click to see pokemon details">
+                <span style="font-size: 1.2em;">{{pokemon.name}}</span>
+            </a>
+        </div>
+    </ng-container>
+
+    <span>Page {{pokemonPaginated.pageNumber}}, Total count: {{pokemonPaginated.totalCount}}</span>
+    
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" *ngIf="pageNumber>1" (click)="previous()">Previous 20</button>
+    </div>
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" (click)="next()">Next 20</button>
+    </div>
+    
+</div>

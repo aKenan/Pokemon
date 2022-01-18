@@ -1,0 +1,41 @@
+<button [routerLink]="'/'" class="btn btn-warning"><- Back</button>
+
+<h1>Name: {{name}}</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <h5 class="card-title">Height</h5>
+        <span class="card-text">{{details.height}}</span>
+    </div>
+    <div class="col-md-3">
+        <h5 class="card-title">Base experience</h5>
+        <span class="card-text">{{details.baseExperience}}</span>
+    </div> 
+    <div class="col-md-3">
+        <h5 class="card-title">Weight</h5>
+        <span class="card-text">{{details.weight}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <h5 class="card-title">Is default</h5>
+        <span class="card-text">{{details.isDefault}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <h5 class="card-title">Abilities</h5>
+        <span class="card-text" style="display: block;" *ngFor="let ability of details.abilities">{{ability.ability.name}} </span>
+    </div>
+    <div class="col-md-3">
+        <h5 class="card-title">Game indices</h5>
+        <span class="card-text" style="display: block;" *ngFor="let indice of details.gameIndicies">{{indice.version.name}} </span>
+    </div>
+    <div class="col-md-3">
+        <h5 class="card-title">Types</h5>
+        <span class="card-text" style="display: block;" *ngFor="let type of details.types">{{type.type.name}} </span>
+    </div>
+    
+    <div class="col-md-3">
+        <h5 class="card-title">Moves</h5>
+        <span class="card-text" style="display: block;" *ngFor="let move of details.moves">{{move.move.name}} </span>
+    </div>
+</div>
