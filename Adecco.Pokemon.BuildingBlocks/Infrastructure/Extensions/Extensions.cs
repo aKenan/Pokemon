@@ -21,6 +21,11 @@ namespace Adecco.Pokemon.BuildingBlocks.Infrastructure.Extensions
             return query.ToString();
         }
 
+        public static string GetRequestUrl(string baseAddress, string route)
+        {
+            return $"{baseAddress}/{route}";
+        }
+
         public static string GetRequestUrl(string baseAddress, string route, string queryParameters)
         {
             return $"{baseAddress}/{route}?{queryParameters}";

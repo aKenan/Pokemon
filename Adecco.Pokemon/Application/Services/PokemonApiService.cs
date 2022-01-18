@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Adecco.Pokemon.BuildingBlocks.Infrastructure.Extensions;
+using Adecco.Pokemon.Application.Models.ViewModels;
 
 namespace Adecco.Pokemon.Application.Services
 {
@@ -27,6 +28,24 @@ namespace Adecco.Pokemon.Application.Services
         {
             _httpClient = httpClient;
             _apiConfigurationModel = apiOptions.Value;
+        }
+
+        /// <inheritdoc/>
+        public async Task<PokemonDetailedViewModel> GetPokemonByNameAsync(string name)
+        {
+            var apiResults = new PokemonDetailedViewModel();
+            string route = Extensions.GetRequestUrl(_apiConfigurationModel.FullAddress, $"pokemon/{name}");
+
+            var result = await _httpClient.GetAsync(route);
+
+            if(result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var readTask = await result.Content.ReadAsStringAsync();
+
+                apiResults = JsonConvert.DeserializeObject<PokemonDetailedViewModel>(readTask);
+            }
+
+            return apiResults;
         }
 
         /// <inheritdoc/>

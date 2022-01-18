@@ -1,4 +1,5 @@
 ﻿using Adecco.Pokemon.Application.Models.ApiResults;
+using Adecco.Pokemon.Application.Models.ViewModels;
 using System.Threading.Tasks;
 
 namespace Adecco.Pokemon.Application.Services.Contracts
@@ -15,5 +16,12 @@ namespace Adecco.Pokemon.Application.Services.Contracts
         /// <param name="pageSize">Page size</param>
         /// <returns><see cref="GetPokemonsApiResultModel"/></returns>
         Task<GetPokemonsApiResultModel> GetPokemonsAsync(int pageNumber, int pageSize);
+
+        /// <summary>
+        /// Get pokemon by name.
+        /// </summary>
+        /// <param name="name">Pokemon name.</param>
+        /// <returns><see cref="PokemonDetailedViewModel"/>.</returns>
+        Task<PokemonDetailedViewModel> GetPokemonByNameAsync(string name);
     }
 }

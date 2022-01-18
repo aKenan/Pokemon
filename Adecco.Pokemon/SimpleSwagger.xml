@@ -19,6 +19,16 @@
             Api Results.
             </summary>
         </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Base.BaseNamedModel">
+            <summary>
+            Base named model.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Base.BaseNamedModel.Name">
+            <summary>
+            The name of this resource
+            </summary>
+        </member>
         <member name="T:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel">
             <summary>
             API configuration model.
@@ -37,6 +47,92 @@
         <member name="P:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel.FullAddress">
             <summary>
             Full address.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.Ability">
+            <summary>
+            Ability.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility">
+            <summary>
+            Pokemon ability.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility.IsHidden">
+            <summary>
+            Whether or not this is a hidden ability.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility.Slot">
+            <summary>
+            The slot this ability occupies in this Pokémon species.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Pokemon.PokemonAbility.Ability">
+            <summary>
+            The ability the Pokémon may have.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel">
+            <summary>
+            Pokémon are the creatures that inhabit the world of the Pokémon games.
+            They can be caught using Pokéballs and trained by battling with other Pokémon.
+            Each Pokémon belongs to a specific species but may take on a variant which
+            makes it differ from other Pokémon of the same species, such as base stats,
+            available abilities and typings.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Id">
+            <summary>
+            The identifier for this resource
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.BaseExperience">
+            <summary>
+            The base experience gained for defeating this Pokémon.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Height">
+            <summary>
+            The height of this Pokémon in decimetres.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.IsDefault">
+            <summary>
+            Set for exactly one Pokémon used as the default for each species.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Order">
+            <summary>
+            Order for sorting. Almost national order, except families
+            are grouped together.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Weight">
+            <summary>
+            The weight of this Pokémon in hectograms.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Abilities">
+            <summary>
+            A list of abilities this Pokémon could potentially have.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Moves">
+            <summary>
+            A list of moves along with learn methods and level
+            details pertaining to specific version groups.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.Types">
+            <summary>
+            A list of details showing types this Pokémon has.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel.GameIndicies">
+            <summary>
+            A list of game indices relevent to Pokémon item by generation.
             </summary>
         </member>
         <member name="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonViewModel">
@@ -68,6 +164,31 @@
         <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQueryHandler.Handle(Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
+        <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery">
+            <summary>
+            Get pokemon by name query.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery.Name">
+            <summary>
+            Pokemon name.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryHandler">
+            <summary>
+            Handler for <see cref="T:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryHandler.#ctor(Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService)">
+            <summary>
+            
+            </summary>
+            <param name="pokemonApiService">Pokemon API service.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQueryHandler.Handle(Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="T:Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService">
             <summary>
             Pokemon API service interface.
@@ -81,6 +202,13 @@
             <param name="pageSize">Page size</param>
             <returns><see cref="T:Adecco.Pokemon.Application.Models.ApiResults.GetPokemonsApiResultModel"/></returns>
         </member>
+        <member name="M:Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService.GetPokemonByNameAsync(System.String)">
+            <summary>
+            Get pokemon by name.
+            </summary>
+            <param name="name">Pokemon name.</param>
+            <returns><see cref="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonDetailedViewModel"/>.</returns>
+        </member>
         <member name="T:Adecco.Pokemon.Application.Services.PokemonApiService">
             <summary>
             Pokemon API service.
@@ -92,6 +220,9 @@
             </summary>
             <param name="httpClient">Http client.</param>
             <param name="apiOptions">Api options.</param>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Services.PokemonApiService.GetPokemonByNameAsync(System.String)">
+            <inheritdoc/>
         </member>
         <member name="M:Adecco.Pokemon.Application.Services.PokemonApiService.GetPokemonsAsync(System.Int32,System.Int32)">
             <inheritdoc/>
@@ -114,6 +245,16 @@
             <param name="query">Pokemons query.</param>
             <returns>Paginated collection of pokemons.</returns>
             <response code="200">Returned if pokemons were returned.</response>
+            <response code="400">Returned if request for the resource contains bad syntax or cannot be processed for some other reason.</response>
+            <response code="500">Returned if some internal server error occurred.</response>
+        </member>
+        <member name="M:Adecco.Pokemon.Controllers.PokemonsController.GetPokemonByNameAsync(Adecco.Pokemon.Application.Queries.Pokemon.GetByName.GetPokemonByNameQuery)">
+            <summary>
+            Action to get pokemon by name.
+            </summary>
+            <param name="query">Pokemon query.</param>
+            <returns>Pokemon details.</returns>
+            <response code="200">Returned if pokemon was returned.</response>
             <response code="400">Returned if request for the resource contains bad syntax or cannot be processed for some other reason.</response>
             <response code="500">Returned if some internal server error occurred.</response>
         </member>

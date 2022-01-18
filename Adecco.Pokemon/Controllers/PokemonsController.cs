@@ -1,5 +1,6 @@
 ﻿using Adecco.Pokemon.Application.Models.ViewModels;
 using Adecco.Pokemon.Application.Queries.Pokemon.GetAll;
+using Adecco.Pokemon.Application.Queries.Pokemon.GetByName;
 using Adecco.Pokemon.BuildingBlocks.Infrastructure.Pagination;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -51,6 +52,27 @@ namespace Adecco.Pokemon.Controllers
             var pokemons = await _mediator.Send(query);
 
             return Ok(pokemons);
+        }
+
+        /// <summary>
+        /// Action to get pokemon by name.
+        /// </summary>
+        /// <param name="query">Pokemon query.</param>
+        /// <returns>Pokemon details.</returns>
+        /// <response code="200">Returned if pokemon was returned.</response>
+        /// <response code="400">Returned if request for the resource contains bad syntax or cannot be processed for some other reason.</response>
+        /// <response code="500">Returned if some internal server error occurred.</response>
+        [HttpGet("{name}")]        
+        [MapToApiVersion("1.0")]
+        [ProducesResponseType(typeof(PokemonDetailedViewModel), (int)HttpStatusCode.OK)]
+        //[ProducesResponseType(typeof(ApiClientErrorResponse), (int)HttpStatusCode.BadRequest)]
+        //[ProducesResponseType(typeof(ApiServerErrorResponse), (int)HttpStatusCode.InternalServerError)]
+        public async Task<IActionResult> GetPokemonByNameAsync(
+            [FromQuery] GetPokemonByNameQuery query)
+        {
+            var pokemon = await _mediator.Send(query);
+
+            return Ok(pokemon);
         }
     }
 }
