@@ -22,7 +22,10 @@ To get started, follow the below steps:
 * Clone the Solution into your Local Directory
 * On the Repository root you can find the docker-compose.yml file
 * Run the below command to build and run the solution in Docker (requires a working Docker installation)
-> docker-compose build --force-rm --no-cache && docker-compose up
+
+```
+docker-compose build --force-rm --no-cache && docker-compose up
+```
 
 Once the containers start successfully navigate to http://localhost
 
