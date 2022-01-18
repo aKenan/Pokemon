@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Adecco.Pokemon</name>
+    </assembly>
+    <members>
+        <member name="T:Adecco.Pokemon.Application.Models.ApiResults.GetPokemonsApiResultModel">
+            <summary>
+            Get all pokemons api result model.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ApiResults.GetPokemonsApiResultModel.Count">
+            <summary>
+            Total count.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ApiResults.GetPokemonsApiResultModel.Results">
+            <summary>
+            Api Results.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel">
+            <summary>
+            API configuration model.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel.BaseAddress">
+            <summary>
+            Base API address.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel.Version">
+            <summary>
+            Api Version.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel.FullAddress">
+            <summary>
+            Full address.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Models.ViewModels.PokemonViewModel">
+            <summary>
+            Pokemon view model.
+            </summary>
+        </member>
+        <member name="P:Adecco.Pokemon.Application.Models.ViewModels.PokemonViewModel.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery">
+            <summary>
+            Get all pokemons query.
+            </summary>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQueryHandler">
+            <summary>
+            Handler for <see cref="T:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQueryHandler.#ctor(Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService)">
+            <summary>
+            
+            </summary>
+            <param name="pokemonApiService">Pokemons API service.</param>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQueryHandler.Handle(Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService">
+            <summary>
+            Pokemon API service interface.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Services.Contracts.IPokemonApiService.GetPokemonsAsync(System.Int32,System.Int32)">
+            <summary>
+            Get all pokemons.
+            </summary>
+            <param name="pageNumber">Page number.</param>
+            <param name="pageSize">Page size</param>
+            <returns><see cref="T:Adecco.Pokemon.Application.Models.ApiResults.GetPokemonsApiResultModel"/></returns>
+        </member>
+        <member name="T:Adecco.Pokemon.Application.Services.PokemonApiService">
+            <summary>
+            Pokemon API service.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Services.PokemonApiService.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Options.IOptions{Adecco.Pokemon.Application.Models.Configuration.ApiConfigurationModel})">
+            <summary>
+            
+            </summary>
+            <param name="httpClient">Http client.</param>
+            <param name="apiOptions">Api options.</param>
+        </member>
+        <member name="M:Adecco.Pokemon.Application.Services.PokemonApiService.GetPokemonsAsync(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Adecco.Pokemon.Controllers.PokemonsController">
+            <summary>
+            Pokemons controller.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Controllers.PokemonsController.#ctor(MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="mediator">Mediator.</param>
+        </member>
+        <member name="M:Adecco.Pokemon.Controllers.PokemonsController.GetPokemonsAsync(Adecco.Pokemon.Application.Queries.Pokemon.GetAll.GetPokemonsQuery)">
+            <summary>
+            Action to get pokemons.
+            </summary>
+            <param name="query">Pokemons query.</param>
+            <returns>Paginated collection of pokemons.</returns>
+            <response code="200">Returned if pokemons were returned.</response>
+            <response code="400">Returned if request for the resource contains bad syntax or cannot be processed for some other reason.</response>
+            <response code="500">Returned if some internal server error occurred.</response>
+        </member>
+        <member name="T:Adecco.Pokemon.Infrastructure.AutofacModules.ServicesModule">
+            <summary>
+            Services autofac module.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Infrastructure.AutofacModules.ServicesModule.#ctor">
+            <summary>
+            Services module.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Infrastructure.AutofacModules.ServicesModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Adecco.Pokemon.Program">
+            <summary>
+            Program.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Program.Main(System.String[])">
+            <summary>
+            Main.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Adecco.Pokemon.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Create host builder.
+            </summary>
+            <param name="args">Arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Adecco.Pokemon.Startup">
+            <summary>
+            Startup.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration">Configuration.</param>
+        </member>
+        <member name="P:Adecco.Pokemon.Startup.Configuration">
+            <summary>
+            Configuration.
+            </summary>
+        </member>
+        <member name="M:Adecco.Pokemon.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure services.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Adecco.Pokemon.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            ConfigureContainer is where you can register things directly with Autofac.
+            This runs after ConfigureServices so the things here will override registrations made in ConfigureServices.
+            Don't build the container; that gets done for you by the factory.
+            </summary>
+            <param name="builder">Builder.</param>
+        </member>
+        <member name="M:Adecco.Pokemon.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure.
+            </summary>
+            <param name="app">Application builder.</param>
+            <param name="env">Host env.</param>
+        </member>
+    </members>
+</doc>
