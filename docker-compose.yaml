@@ -1,0 +1,22 @@
+version: "3"
+services: 
+    proxy:
+        build: 
+            context: ./Proxy
+            dockerfile: Dockerfile
+        ports: 
+            - "80:80"
+        restart: always
+    
+    api:
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+        ports: 
+            - "5000:80"
+    client:
+        build:
+            context: ./Adecco.Pokemon.Client/Adecco.Pokemon.Client
+            dockerfile: Dockerfile
+        ports: 
+            - "9000:80"
