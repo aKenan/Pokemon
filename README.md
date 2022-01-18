@@ -2,8 +2,8 @@
 PokeAPI example
 
 **Technologies Used**
--ASP.NET Core (.NET 6) Web API
--Entity Framework Core (EFCore 6)
+- ASP.NET Core (.NET 6) Web API
+- Entity Framework Core (EFCore 6)
 -MediatR for .NET 6
 -Fluent Validation for .NET 6
 -SQLite
